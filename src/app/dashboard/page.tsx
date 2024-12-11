@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button';
 import HoverDevCards from '@/components/dock';
 import { DrawerDialogDemo } from '@/components/drawer';
 import { CreateAssignment } from '@/components/drawermodal';
+import TableAssignment from '@/components/tableassignment';
 
 function Dashboard() {
   return (
@@ -55,6 +56,9 @@ function Dashboard() {
             </DrawerFooter>
           </DrawerContent>
         </Drawer> */}
+      </div>
+      <div className='mt-4'>
+        <TableAssignment/>
       </div>
       <div>
         <HoverDevCards/>
