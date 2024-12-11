@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { getfolders } from "@/lib/getassignments"; // Import the new function
@@ -30,14 +32,18 @@ const TableAssignment = () => {
                     <TableHead className="w-[100px]">File name</TableHead>
                     <TableHead>Folder</TableHead>
                     <TableHead>Uploaded At</TableHead>
+                    <TableHead>Due date</TableHead>
+                    <TableHead>Description</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
                 {files.map((file) => (
                     <TableRow key={file.id}>
                         <TableCell className="font-medium">{file.name_assignment}</TableCell>
-                        <TableCell>{file.class_type}</TableCell>
-                        <TableCell>{file.assignment_type}</TableCell>
+                        <TableCell>{file.class_type || 'N/A'}</TableCell>
+                        <TableCell>{file.assignment_type || 'N/A'}</TableCell>
+                        <TableCell>{file.due_date ? file.due_date.toLocaleDateString() : 'N/A'}</TableCell>
+                        <TableCell>{file.description || 'N/A'}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

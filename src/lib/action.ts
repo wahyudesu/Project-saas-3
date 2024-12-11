@@ -23,5 +23,5 @@ export const savefolders = async (formData: FormData) => {
         throw new Error("Failed to create folder");
     }
     revalidatePath("/assignment");
-    redirect("/assignment");
+    // redirect("/assignment");
 }

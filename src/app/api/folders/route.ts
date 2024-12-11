@@ -5,10 +5,9 @@ const prisma = new PrismaClient();
 
 // Action to read
 export const GET = async (req: NextRequest) => {
-  const posts = await prisma.folders.findMany({});
-
+  const folders = await prisma.folders.findMany({});
   return NextResponse.json({
-    posts,
+    folders,
   });
 };
 

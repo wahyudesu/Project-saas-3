@@ -4,17 +4,17 @@ import {prisma} from "@/lib/db"
 
 export const getfolders = async () => {
     try {
-        const folders = await prisma.folders.findMany();
-        return folders;
+        const kelas = await prisma.kelas.findMany();
+        return kelas;
     } catch (error) {
         throw new Error("Failed to fetch folder data");
     }
 }
 
-export const countAssignmentFolders = async () => { 
+export const countClassFolders = async () => { 
     try {
-        const folderCount = await prisma.folders.count(); 
-        return folderCount; 
+        const kelasCount = await prisma.kelas.count(); 
+        return kelasCount; 
     } catch (error) {
         throw new Error("Failed to count assignment folders");
     }

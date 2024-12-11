@@ -1,23 +1,18 @@
 "use client"
-import Card_stats from '@/components/card'
+
+// import Card_stats from '@/components/card'
 import React from 'react'
 import {Divider} from "@nextui-org/react";
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
 import { Button } from '@/components/ui/button';
 import HoverDevCards from '@/components/dock';
-import { DrawerDialogDemo } from '@/components/drawer';
 import { CreateAssignment } from '@/components/drawermodal';
 import TableAssignment from '@/components/tableassignment';
+import TableAssignmentApi from '@/components/tableassignmentapi';
+import AssignmentFolders from '@/components/card-assignments';
+import FolderList from '@/components/card1';
+import FolderCountCard from '@/components/card1';
+import KelasCountCard from '@/components/card2';
 
 function Dashboard() {
   return (
@@ -27,8 +22,11 @@ function Dashboard() {
           <BreadcrumbItem href="/dashboard" className="hover:underline">Dashboard</BreadcrumbItem>
         </Breadcrumbs>
       </div>
-      <div className='flex justify-center'>
-        <Card_stats/>
+      <div className='flex justify-center gap-5'>
+        <FolderCountCard/>
+        <KelasCountCard/>
+        <KelasCountCard/>
+        {/* <Card_stats/> */}
       </div>
       <Divider className="my-4" />
       <div className='flex justify-start gap-2'>
@@ -39,28 +37,17 @@ function Dashboard() {
         <Button variant="outline">
           Sort by: name
         </Button>
-        
-        <DrawerDialogDemo/>
-        {/* <Drawer>
-          <DrawerTrigger>Open</DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-              <DrawerDescription>This action cannot be undone.</DrawerDescription>
-            </DrawerHeader>
-            <DrawerFooter>
-              <Button>Submit</Button>
-              <DrawerClose>
-                <Button variant="outline">Cancel</Button>
-              </DrawerClose>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer> */}
+        {/* <DrawerDialogDemo/> */}
       </div>
       <div className='mt-4'>
+        <AssignmentFolders/>
         <TableAssignment/>
+        {/* <TableAssignmentApi/> */}
       </div>
       <div>
+
+      </div>
+      <div className='mb-4'>
         <HoverDevCards/>
       </div>
     </div>
