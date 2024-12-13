@@ -12,12 +12,12 @@
             href="/assignment"
             Icon={FiUser}
           />
-          <Card title="Document Ai" subtitle="Generate quiz just by upload module" href="/documentai" Icon={FiMail} />
+          <Card title="Document Ai" subtitle="Generate quiz and homework" href="/documentai" Icon={FiMail} />
           <Card title="Kelas" subtitle="Atur dan tambah kelas" href="/kelas" Icon={FiUsers} />
           <Card
-            title="Billing"
-            subtitle="Manage cards"
-            href="#"
+            title="Bantuan"
+            subtitle="Hubungi kami"
+            href="https://wa.me/+6285174346212"
             Icon={FiCreditCard}
           />
         </div>

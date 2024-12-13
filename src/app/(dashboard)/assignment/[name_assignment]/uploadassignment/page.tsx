@@ -47,6 +47,7 @@ import {
   FileUploaderContent,
   FileUploaderItem
 } from "@/components/ui/file-upload"
+import { useParams } from 'next/navigation';
 
 const formSchema = z.object({
   name_5418136395: z.string(),
@@ -65,8 +66,11 @@ export default function MyForm() {
   };
   const form = useForm < z.infer < typeof formSchema >> ({
     resolver: zodResolver(formSchema),
-
   })
+  const params = useParams();
+  const assignmentName = typeof params.name_assignment === 'string' 
+    ? decodeURIComponent(params.name_assignment) 
+    : ''; // Mendekode nilai jika ada
 
   function onSubmit(values: z.infer < typeof formSchema > ) {
     try {
@@ -84,19 +88,21 @@ export default function MyForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10">
-        
-        <FormField
+      
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-3xl mx-auto py-10 px-4">
+      <h1 className="scroll-m-20 text-xl font-bold tracking-tight lg:text-3xl">
+        {assignmentName}
+      </h1>
+      <FormField
           control={form.control}
           name="name_5418136395"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Nama</FormLabel>
               <FormControl>
                 <Input 
-                placeholder="shadcn"
-                
-                type=""
+                placeholder="Nama lengkap"
+                type="text"
                 {...field} />
               </FormControl>
               <FormDescription>This is your public display name.</FormDescription>

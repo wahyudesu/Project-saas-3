@@ -10,10 +10,10 @@ const LandingPage = () => {
   return (
     <div>
       <Hero5 />
-      <CTA2 />
       <Stats2 />
       <FAQ2 />
       <Contact1/>
+      <CTA2 />
     </div>
   );
 };

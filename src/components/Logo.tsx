@@ -9,7 +9,7 @@ export default function Logo() {
       <h1>
         Next
         <span className="ml-1 rounded-md bg-gradient-to-br from-violet-400 to-cyan-500 p-1 text-background">
-          Form
+          Task
         </span>
       </h1>
     </Link>

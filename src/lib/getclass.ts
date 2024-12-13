@@ -2,7 +2,7 @@
 
 import {prisma} from "@/lib/db"
 
-export const getfolders = async () => {
+export const getkelas = async () => {
     try {
         const kelas = await prisma.kelas.findMany();
         return kelas;
@@ -19,3 +19,4 @@ export const countClassFolders = async () => {
         throw new Error("Failed to count assignment folders");
     }
 }
+

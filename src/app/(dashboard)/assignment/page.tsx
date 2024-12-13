@@ -16,7 +16,7 @@ import KelasCountCard from '@/components/card2';
 
 function Dashboard() {
   return (
-    <div className='mx-80'>
+    <div className='mx-40'>
       <div className='mt-4 mb-4'>
         <Breadcrumbs size='lg' className="text-2xl" >
           <BreadcrumbItem href="/dashboard" className="hover:underline">Dashboard</BreadcrumbItem>
@@ -39,9 +39,9 @@ function Dashboard() {
         </Button>
         {/* <DrawerDialogDemo/> */}
       </div>
-      <div className='mt-4'>
+      <div className='mt-4 mb-4'>
         <AssignmentFolders/>
-        <TableAssignment/>
+        {/* <TableAssignment/> */}
         {/* <TableAssignmentApi/> */}
       </div>
       <div>

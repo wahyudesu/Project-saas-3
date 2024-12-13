@@ -8,11 +8,12 @@ function account() {
     <div className='pr-80 pl-80'>
       <div className='mt-4'>
         <Breadcrumbs className="text-2xl" size='lg'>
-          <BreadcrumbItem href="/dashboard" className="hover:underline">Dashboard</BreadcrumbItem>
-          <BreadcrumbItem href="/dashboard" className="hover:underline">Account</BreadcrumbItem>
+          <BreadcrumbItem href="/dashboard/assignment" className="hover:underline">Assignment</BreadcrumbItem>
+          <BreadcrumbItem href="/dashboard/kelas" className="hover:underline">Kelas</BreadcrumbItem>
         </Breadcrumbs>
-        </div>
+      </div>
       <div>
+        <h1>Blog List</h1>;
       </div>
     </div>
   )
