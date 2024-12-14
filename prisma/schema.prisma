@@ -10,10 +10,11 @@ datasource db {
 
 model document {
   id            Int       @id @default(autoincrement())
-  nameStudent   String
-  documentName  String
-  documentUrl   String
-  folder        String
+  nameStudent   String?
+  documentName  String?
+  documentType  String?
+  documentUrl   String?
+  folder        String?
   uploadedDate  DateTime? @default(now()) @db.Timestamptz(6)
 }
 

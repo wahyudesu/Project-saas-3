@@ -19,3 +19,15 @@ export const countAssignmentFolders = async () => {
         throw new Error("Failed to count assignment folders");
     }
 }
+
+export const gettypedocument = async (name_folder?: string) => { 
+    try {
+        const assignmentType = await prisma.folders.findFirst({
+            where: { name_assignment: name_folder },
+            select: { assignment_type: true },
+        }); 
+        return assignmentType?.assignment_type; 
+    } catch (error) {
+        throw new Error("Failed to fetch assignment type");
+    }
+}

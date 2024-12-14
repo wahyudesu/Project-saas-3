@@ -12,6 +12,7 @@ NavigationMenuTrigger,
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Logo from "../Logo";
 
 export const Header1 = () => {
 const navigationItems = [
@@ -121,7 +122,7 @@ return (
         </NavigationMenu>
         </div>
         <div className="flex lg:justify-center">
-        <p className="font-semibold">TWBlocks</p>
+        <Logo/>
         </div>
         <div className="flex justify-end w-full gap-4">
         <Button variant="ghost" className="hidden md:inline">
