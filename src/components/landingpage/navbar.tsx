@@ -74,6 +74,7 @@ return (
         <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
         <NavigationMenu className="flex justify-start items-start">
             <NavigationMenuList className="flex justify-start gap-4 flex-row">
+            <Logo/>
             {navigationItems.map((item) => (
                 <NavigationMenuItem key={item.title}>
                 {item.href ? (
@@ -122,7 +123,7 @@ return (
         </NavigationMenu>
         </div>
         <div className="flex lg:justify-center">
-        <Logo/>
+        {/* <Logo/> */}
         </div>
         <div className="flex justify-end w-full gap-4">
         <Button variant="ghost" className="hidden md:inline">

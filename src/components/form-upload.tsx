@@ -1,27 +1,54 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { uploadassignment } from "@/lib/action";
+import { useParams } from "next/navigation";
+import { getinformation } from '@/lib/getassignments';
 
 export default function SimpleForm() {
+  // State for form data
   const [file, setFile] = useState<File | null>(null);
   const [nameStudent, setNameStudent] = useState<string>('');
+  
+  // State for status, error, and submission
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  
+  // State for folder data (description, assignment_type)
+  const [folder, setFolder] = useState<{
+    description: string | null;
+    assignment_type: string | null;
+  } | null>(null);
+  
+  // Params from URL
+  const params = useParams();
+  const nameAssignment = typeof params.name_assignment === "string" ? params.name_assignment : "";
+
+  // Fetch folder details asynchronously
+  useEffect(() => {
+    const fetchFolderData = async () => {
+      try {
+        const folderData = await getinformation(nameAssignment);
+        setFolder(folderData); // Set folder data in state
+      } catch (err) {
+        setError("Failed to fetch folder details");
+      }
+    };
+
+    if (nameAssignment) {
+      fetchFolderData();
+    }
+  }, [nameAssignment]); // This effect will run when nameAssignment changes
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (!selectedFile) {
       setError("Please select a file");
-      return;
-    }
-    if (!selectedFile.name.endsWith(".pdf")) {
-      setError("Only PDF files are allowed");
       return;
     }
     if (selectedFile.size > 10 * 1024 * 1024) { // 10 MB
@@ -74,7 +101,11 @@ export default function SimpleForm() {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Form Upload File</CardTitle>
+        <CardTitle>{decodeURIComponent(nameAssignment)}</CardTitle>
+        {/* Only display description if folder is loaded */}
+        {folder && folder.description && (
+          <p>{folder.description}</p>
+        )}
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

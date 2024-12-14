@@ -9,13 +9,14 @@ datasource db {
 }
 
 model document {
-  id            Int       @id @default(autoincrement())
-  nameStudent   String?
-  documentName  String?
-  documentType  String?
-  documentUrl   String?
-  folder        String?
-  uploadedDate  DateTime? @default(now()) @db.Timestamptz(6)
+  id           Int                    @id @default(autoincrement())
+  nameStudent  String?
+  documentName String?
+  documentUrl  String?
+  folder       String?
+  uploadedDate DateTime?              @default(now()) @db.Timestamptz(6)
+  documentType String?
+  embedding    Unsupported("vector")?
 }
 
 model folders {
@@ -24,7 +25,7 @@ model folders {
   created_at      DateTime? @default(now())
   due_date        DateTime?
   class_type      String?
-  description     String?
+  description     String
   assignment_type String?
 }
 

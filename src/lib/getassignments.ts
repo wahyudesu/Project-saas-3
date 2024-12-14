@@ -31,3 +31,20 @@ export const gettypedocument = async (name_folder?: string) => {
         throw new Error("Failed to fetch assignment type");
     }
 }
+
+export const getinformation = async (name_folder: string) => {
+    try {
+      // Cari folder berdasarkan name_assignment dan ambil semua datanya
+      const folder = await prisma.folders.findFirst({
+        where: {
+          name_assignment: name_folder,
+        },
+      });
+  
+      // Kembalikan data folder (null jika tidak ditemukan)
+      return folder || null;
+    } catch (error) {
+      console.error("Error fetching folder by name:", error);
+      throw new Error("Failed to fetch folder data");
+    }
+  }
